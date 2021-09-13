@@ -2,10 +2,11 @@ package newcache
 
 import (
 	"context"
-	"github.com/patrickmn/go-cache"
 	"log"
 	"sync"
 	"time"
+
+	"github.com/patrickmn/go-cache"
 )
 
 var (

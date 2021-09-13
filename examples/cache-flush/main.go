@@ -1,10 +1,11 @@
 package main
 
 import (
-	cache "github.com/newtorn/new-cache"
 	"context"
 	"fmt"
 	"time"
+	
+	cache "github.com/newtorn/new-cache"
 )
 
 // User represents a data entity, we can store into cache.
@@ -38,8 +39,8 @@ func main() {
 	// cache.InitOnce(cache.CacheConfig{})
 	cache.InitOnce(cache.CacheConfig{
 		DefaultExpiration: time.Duration(5) * time.Minute,
-		CleanupInterval: time.Duration(2) * time.Minute,
-		FlushTimerTime: time.Duration(30) * time.Second,
+		CleanupInterval:   time.Duration(2) * time.Minute,
+		FlushTimerTime:    time.Duration(30) * time.Second,
 	})
 
 	// Call Singleton for the first time will create get-started.

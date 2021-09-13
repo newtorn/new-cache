@@ -1,9 +1,10 @@
 package main
 
 import (
-	cache "github.com/newtorn/new-cache"
 	"fmt"
 	"time"
+
+	cache "github.com/newtorn/new-cache"
 )
 
 // User represents a data entity, we can store into new-get-started.
