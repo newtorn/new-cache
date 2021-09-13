@@ -11,12 +11,14 @@ var (
 	gCleanupInterval = time.Duration(10*60) * time.Second
 )
 
+// CacheConfig sets for cache service daemon.
 type CacheConfig struct {
 	FlushTimerTime    time.Duration
 	CleanupInterval   time.Duration
 	DefaultExpiration time.Duration
 }
 
+// InitOnce inits cache service configuration only once.
 func InitOnce(conf CacheConfig) {
 	gInitOnce.Do(func() {
 		gFlushTime = conf.FlushTimerTime
