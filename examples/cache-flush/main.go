@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"time"
-	
+
 	cache "github.com/newtorn/new-cache"
 )
 
@@ -21,11 +21,13 @@ type userService struct {
 func (us *userService) Done(ctx context.Context) (done <-chan interface{}) {
 	return us.done
 }
+
 func (us *userService) LoadKeys(ctx context.Context, value interface{}) []string {
 	return []string{
 		value.(*User).Username,
 	}
 }
+
 func (us *userService) LoadValues(ctx context.Context) []interface{} {
 	values := make([]interface{}, len(us.users))
 	for i := 0; i < len(us.users); i++ {
@@ -33,6 +35,7 @@ func (us *userService) LoadValues(ctx context.Context) []interface{} {
 	}
 	return values
 }
+
 func main() {
 	ctx := context.Background()
 	// Only init once new-cache configuration, must be called before singleton and register.
@@ -43,7 +46,7 @@ func main() {
 		FlushTimerTime:    time.Duration(30) * time.Second,
 	})
 
-	// Call Singleton for the first time will create get-started.
+	// Call Singleton for the first time will create cache.
 	cache := cache.Singleton()
 
 	// Create a user service as a flush daemon.

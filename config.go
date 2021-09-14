@@ -13,8 +13,11 @@ var (
 
 // CacheConfig sets for cache service daemon.
 type CacheConfig struct {
+	// local cache flush time.
 	FlushTimerTime    time.Duration
+	// local cache cleanup time.
 	CleanupInterval   time.Duration
+	// local cache expiration time.
 	DefaultExpiration time.Duration
 }
 
